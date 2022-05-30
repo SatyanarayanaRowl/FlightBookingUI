@@ -1,0 +1,134 @@
+<div class="container-fluid py-5">
+    <div class="py-5">
+
+        <div class="wrapper rounded bg-white">
+
+            <div class="h3" style="background-color: rgb(80, 220, 255);">Ticket Booking</div>
+            <br />
+            <div class="form">
+                <div class="row">
+                    <div class="col-md-4  ">
+                        <div class="form-outline flex-fill">
+                            <label>Flight Number</label>
+                            <input disabled type="text" class="form-control"  placeholder="{{inventoryData.flightNumber}}" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-outline flex-fill">
+                            <label>Airline Number</label>
+                            <input disabled type="text" class="form-control" placeholder="{{inventoryData.airlineNo}}" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-outline flex-fill">
+                            <label>From Place</label>
+                            <input disabled type="text" class="form-control" placeholder="{{inventoryData.fromPlace}}" />
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="form-outline flex-fill">
+                            <label>To Place</label>
+                            <input disabled type="text" class="form-control" placeholder="{{inventoryData.toPlace}}" />
+                        </div>
+                    </div>
+                </div>
+
+              
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="form-outline flex-fill">
+                            <label>Scheduled</label>
+                            <input disabled type="text" class="form-control" placeholder="{{inventoryData.scheduleDays}}" />
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="form-outline flex-fill">
+                            <label>Meal</label>
+                            <input disabled type="text" class="form-control" placeholder="{{inventoryData.meal}}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container  table-bordered-1">
+                       <div class="row">
+                            <div class="col-12">
+                               
+                            </div>
+                        </div>
+                        <div class="table-responsive " style="padding-top: 15px;">
+                            <table id="dtDynamicVerticalScrollExample"
+                                class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                                <thead class="bg-info">
+                                    <tr>
+                                        <th class="th-sm">
+                                            <h4>Firsname</h4>
+                                        </th>
+                                        <th class="th-sm">
+                                            <h4>Lastname</h4>
+                                        </th>
+                                        <th class="th-sm">
+                                            <h4>Age</h4>
+                                        </th>
+                                        <th class="th-sm">
+                                            <h4>Gender</h4>
+                                        </th>
+                                        <th class="th-sm">
+                                            <h4>Class</h4>
+                                        </th>
+                                        <th class="th-sm">
+                                            <h4>Action</h4>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let detail of personArray;index as i">
+                                        <td>
+                                            <input type="text" [(ngModel)]="personArray[i].firstName" class="form-control" placeholder="Enter Firstname" />
+                                        </td>
+                                        <td>
+                                            <input type="text" [(ngModel)]="personArray[i].lastName" class="form-control" placeholder="Enter Lastname" />
+                                        </td>
+                                        <td>
+                                            <input type="text" [(ngModel)]="personArray[i].age" class="form-control" style=" width:100px"placeholder="Enter Age" />
+                                        </td>
+                                        <td>
+                                            <select class="select"
+                                            [(ngModel)]="personArray[i].gender"     style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
+                                                <option value="" selected hidden>Choose Gender</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Male">Male</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select class="select"
+                                            [(ngModel)]="personArray[i].class"    style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
+                                                <option value="" selected hidden>Choose Class</option>
+                                                <option value="Business">Business</option>
+                                                <option value="NonBusiness">NonBusiness</option>
+                                            </select>
+
+                                        </td>
+                                        <td style="width: 20%;">
+                                             <button type="submit" class=" btn-success btn-lg float-left" 
+                                    (click)="AddRow()"style="">Add</button>
+                                    <button type="submit" class=" btn-danger btn-lg float-right"
+                                    (click)="DeletRow(i)"style="">Delete</button>
+                                   
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                    <button type="button" class="btn btn-success btn-lg float-left"
+                    (click)="submit()"style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit </button>
+                </div>
+            </div>
+            </div>
+        </div>

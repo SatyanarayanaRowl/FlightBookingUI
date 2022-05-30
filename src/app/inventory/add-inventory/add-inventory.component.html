@@ -1,0 +1,131 @@
+<div class="container-fluid py-5">
+    <div class="py-5">
+
+        <div class="wrapper rounded bg-white">
+
+            <div class="h3" style="background-color: rgb(80, 220, 255);">Add Inventory</div>
+            <br />
+            <div class="form">
+                <div class="row">
+                    <div class="col-md-4  ">
+                        <div class="form-outline flex-fill">
+                            <label>Flight Number</label>
+                            <input type="text" [(ngModel)]="inventoryData.flightNumber"class="form-control" placeholder="Enter Flight Number" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-outline flex-fill">
+                            <label>To Place</label>
+                            <input type="text" [(ngModel)]="inventoryData.toPlace" class="form-control" placeholder="Enter To Place" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-outline flex-fill">
+                            <label>From Place</label>
+                            <input type="text" class="form-control" [(ngModel)]="inventoryData.fromPlace" placeholder="Enter From Place" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 py-3" >
+                    <label>Select Airline</label>
+                    <select class="select"
+                    [(ngModel)]="inventoryData.airlineNo"  (change)="update($event)" style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
+                        <option value="" selected hidden >Choose Airline</option>
+                        <option *ngFor="let detail of airlineModellist">{{detail.airlineNo}}</option>    
+                    </select>
+                </div>
+                <div class="col-md-4  mt-3">
+                    <div class="form-outline flex-fill">
+                        <label>Start Date</label>
+                        <input type="date" class="form-control" [(ngModel)]="inventoryData.startDateTime" placeholder="Start Date" />
+                    </div>
+                </div>
+                <div class="col-md-4  mt-3 ">
+                    <div class="form-outline flex-fill">
+                        <label>End Date</label>
+                        <input type="date" class="form-control" placeholder="End Date" [(ngModel)]="inventoryData.endDateTime" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-outline flex-fill">
+                        <label>Schedule Days</label>
+                        <select class="select" [(ngModel)]="inventoryData.scheduleDays"
+                            style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
+                            <option value="" selected hidden>Choose Days</option>
+                            <option value="Daily">Daily</option>
+                            <option value="Weekend">Weekend</option>
+                            <option value="Week Days">Week Days</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4  ">
+                    <div class="form-outline">
+                        <label>Instrument Used</label>
+                        <select class="select" [(ngModel)]="inventoryData.instrumentUsed"
+                            style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
+                            <option value="" selected hidden>Select Options</option>
+                            <option value="N56">N56</option>
+                            <option value="Dk89">Dk89</option>
+                            <option value="E11">E11</option>
+                        </select>
+                    </div>
+                </div>  
+                <div class="col-md-4  ">
+                    <div class="row">
+                    <div class="form-outline" style=" margin-left:15px;">
+                        <label>Business Class</label>
+                        <input type="text" class="form-control" style="width: 100px;"[(ngModel)]="inventoryData.businessClassSeat" placeholder="Number of Business" />
+                                         
+                    </div>  
+                    <div class="form-outline" style=" margin-left:100px;">
+                        <label>Non-Business Class</label>
+                        <input type="text" class="form-control" style="width: 100px;" [(ngModel)]="inventoryData.nonBusinessClassSeat" placeholder="Number of Non-Business" />
+                    </div>   
+                </div>               
+                </div>                
+            </div>
+            <div class="row">
+                <div class="col-md-4  mt-3">
+                   
+                    <div class="form-outline flex-fill">
+                        <label>Number of Rows</label>
+                        <input type="text" class="form-control"  [(ngModel)]="inventoryData.noOfRows" placeholder="Number of Rows" />
+                    </div>
+                                   
+                </div>
+                <div class="col-md-4  mt-3">
+                    <div class="form-outline flex-fill">
+                        <label>Meal</label>
+                        <select class="select" [(ngModel)]="inventoryData.meal"
+                            style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
+                            <option value="" selected hidden>Select Options</option>
+                            <option value="Veg">Veg</option>
+                            <option value="Non Veg">Non Veg</option>
+                            <option value="None">None</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4  mt-3 ">
+                    <div class="form-outline flex-fill">
+                        <label>Ticket Cost</label>
+                        <input type="text" class="form-control"  [(ngModel)]="inventoryData.ticketCost"placeholder="Ticket Cost" />
+                    </div>
+                </div>
+            </div>
+            <div class="float-right text-lg-start mt-2 pt-2">
+                <button type="submit" class="btn btn-success btn-lg"
+                 style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="submitInventory()">Submit</button>               
+            </div>
+        </div>
+    </div>
+</div>

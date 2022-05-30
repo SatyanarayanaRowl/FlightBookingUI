@@ -1,0 +1,49 @@
+<div class="py-5">
+    <div class="container-fluid "> 
+        <div class="row py-2">
+        <div class="col text-center" style="padding-top: 30px!important;">
+            <h2  style="background-color: rgb(80, 220, 255);">Airline</h2>
+            <p class="text-h3"></p>
+        </div>
+        </div>       
+    </div>
+    <div class="container  table-bordered-1" >
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-success btn-lg align-items-center"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="addAirline()">Add</button>
+            </div>
+        </div>
+        <div class="table-responsive " style="padding-top: 15px;">
+            <table id="dtDynamicVerticalScrollExample" class="table table-striped table-bordered table-sm"
+                cellspacing="0" width="100%">
+                <thead class="bg-info">
+                    <tr>
+                        <th class="th-sm"><h4>Airline</h4></th>
+                        <th class="th-sm"><h4>UploadLogo</h4></th>
+                        <th class="th-sm"><h4>Address</h4></th>
+                        <th class="th-sm"><h4>Number</h4></th>
+                        <th class="th-sm"><h4>Action</h4></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="IsError">
+                        <td colspan="5">{{errorRes}}</td>
+                    </tr>
+                    <tr *ngFor="let detail of airlineModellist;index as i">
+                        <td>{{detail.airlineNo}}</td>
+                        <td>{{detail.uploadLogo}}</td>
+                        <td>{{detail.contactAddress}}</td>
+                        <td>{{detail.contactNumber}}</td>
+                        <td>
+                            
+                                <button type="submit"  class="btn btn-success align-items-center" style=" padding: auto;width: 90%;"
+                                     (click)="deleteAirline(i,detail)">Block</button>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
